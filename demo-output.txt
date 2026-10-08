@@ -1,0 +1,100 @@
+
+=== step1_box.py
+10 particles, all start on the left
+   left side after 0 ticks: 10, 10 ticks: 6, 100 ticks: 6, 1,000 ticks: 4, 10,000 ticks: 4, 100,000 ticks: 4, 1,000,000 ticks: 6
+   back to "all on the left" 984 times in a million ticks
+   after mixing the left side holds between 0 and 10 (0.0% to 100.0%)
+100 particles, all start on the left
+   left side after 0 ticks: 100, 10 ticks: 92, 100 ticks: 50, 1,000 ticks: 52, 10,000 ticks: 54, 100,000 ticks: 50, 1,000,000 ticks: 56
+   back to "all on the left" 0 times in a million ticks
+   after mixing the left side holds between 28 and 73 (28.0% to 73.0%)
+10,000 particles, all start on the left
+   left side after 0 ticks: 10,000, 10 ticks: 9,990, 100 ticks: 9,904, 1,000 ticks: 9,106, 10,000 ticks: 5,664, 100,000 ticks: 4,986, 1,000,000 ticks: 5,004
+   back to "all on the left" 0 times in a million ticks
+   after mixing the left side holds between 4,850 and 5,164 (48.5% to 51.6%)
+
+=== step2_count.py
+4 particles, 16 arrangements; ways to have 0..4 on the left: [1, 4, 6, 4, 1]
+100 particles: 1.268e+30 arrangements in all
+   all on the left: 1 way      50 and 50: 1.009e+29 ways
+   between 45 and 55 on the left: 72.87% of all arrangements
+   between 40 and 60 on the left: 96.48% of all arrangements
+   between 35 and 65 on the left: 99.82% of all arrangements
+   between 30 and 70 on the left: 100.00% of all arrangements
+   one arrangement in 1.27e+30 is "all left"; at a billion arrangements a second that is one every 4.0e+13 years
+   the universe is 1.38e+10 years old: the wait is 2,911 times that
+   log W: all left 0.00, 75 left 53.85, 50 left 66.78
+   two such boxes side by side: ways multiply to 1.02e+58; log W = 133.57 = 66.78 + 66.78
+a litre of air, 2.69e+22 molecules: the chance that all sit in the left half is 1 in a number with 8.1e+21 digits
+
+=== step3_reverse.py
+40 discs start in the left half. 3 seconds, 50 bounces between discs.
+   on the left each second: [40, 27, 17, 16]
+   log W goes from 0.0 to 24.9
+   turned around, one disc nudged by 0: 40 of 40 end on the left; average distance from the starting places 5.1e-08
+   turned around, one disc nudged by 1e-12: 40 of 40 end on the left; average distance from the starting places 5.8e-05
+   turned around, one disc nudged by 1e-09: 40 of 40 end on the left; average distance from the starting places 0.0059
+   turned around, one disc nudged by 1e-06: 39 of 40 end on the left; average distance from the starting places 0.098
+   turned around, one disc nudged by 0.001: 36 of 40 end on the left; average distance from the starting places 0.25
+   no nudge at all, 1 seconds each way, 24 bounces: 40 of 40 end on the left; average distance 5.1e-13
+   no nudge at all, 2 seconds each way, 43 bounces: 40 of 40 end on the left; average distance 7.8e-10
+   no nudge at all, 3 seconds each way, 50 bounces: 40 of 40 end on the left; average distance 5.1e-08
+   no nudge at all, 4 seconds each way, 72 bounces: 40 of 40 end on the left; average distance 0.001
+   no nudge at all, 5 seconds each way, 88 bounces: 39 of 40 end on the left; average distance 0.26
+   no nudge at all, 7 seconds each way, 134 bounces: 23 of 40 end on the left; average distance 0.74
+   no nudge at all, 10 seconds each way, 205 bounces: 17 of 40 end on the left; average distance 0.79
+
+=== step4_share.py
+10,000 particles, 5 units of energy each, 50,000 units in all. One unit moves per tick.
+   after         0 ticks: with 0 units     0   with 5 units 10,000   richest holds  5   log W = 0
+   after    10,000 ticks: with 0 units    12   with 5 units 3,108   richest holds 11   log W = 17,527
+   after   100,000 ticks: with 0 units 1,061   with 5 units   933   richest holds 20   log W = 25,892
+   after 1,000,000 ticks: with 0 units 1,685   with 5 units   693   richest holds 39   log W = 26,903
+   after 5,000,000 ticks: with 0 units 1,667   with 5 units   660   richest holds 52   log W = 26,895
+   share holding 0..8 units: 16.7%, 13.4%, 11.9%, 10.0%, 7.9%, 6.6%, 6.1%, 4.6%, 3.6%
+   each step up, the share is multiplied by: 0.81, 0.88, 0.84, 0.79, 0.83, 0.93, 0.76, 0.78   (one fitted multiplier: 0.833)
+   the rule (1 - q) q^k with q = 5/6 = 0.833: 16.7%, 13.9%, 11.6%, 9.6%, 8.0%, 6.7%, 5.6%, 4.7%, 3.9%
+   largest gap between the run and the rule: 0.55 points
+   log W: all equal 0   bell 18,727   flat 23,937   the rule 26,912   the run 26,895
+    1 units each: 49.8% hold nothing; multiplier 0.499 (rule 0.500); as e^(-1/T) that is T = 1.44
+    5 units each: 17.0% hold nothing; multiplier 0.835 (rule 0.833); as e^(-1/T) that is T = 5.55
+   20 units each: 4.5% hold nothing; multiplier 0.953 (rule 0.952); as e^(-1/T) that is T = 20.97
+
+=== step5_air.py
+One air molecule weighs 4.810e-26 kilograms.
+Lifting it 1 km costs 4.717e-22 joules. Its heat energy scale at 15 C, k times T, is 3.978e-21 joules.
+So each kilometre up multiplies the air by 0.888. Height for 1/e of the air: 8,435 m.
+     5,500 m: one temperature 52.1% (528 mbar)   colder with height 49.8% (505 mbar)
+     8,000 m: one temperature 38.7% (392 mbar)   colder with height 35.1% (356 mbar)
+     Everest: one temperature 35.0% (355 mbar)   colder with height 31.0% (314 mbar)
+    11,000 m: one temperature 27.1% (275 mbar)   colder with height 22.3% (226 mbar)
+6,000 molecules start on the ground. Each tries a 500 m step up or down; a step up is allowed with chance 0.942.
+   after     0 rounds, molecules in each 2 km layer: [6000, 0, 0, 0, 0, 0, 0, 0]
+   after    10 rounds, molecules in each 2 km layer: [4870, 1080, 50, 0, 0, 0, 0, 0]
+   after   100 rounds, molecules in each 2 km layer: [2410, 1692, 979, 539, 227, 109, 33, 8]
+   after 1,000 rounds, molecules in each 2 km layer: [1406, 1098, 849, 679, 490, 390, 285, 240]
+   after 4,000 rounds, molecules in each 2 km layer: [1279, 984, 816, 591, 499, 409, 324, 248]
+   layer to layer the count is multiplied by: 0.77, 0.83, 0.72, 0.84   (the rule for 2 km: 0.79)
+   share of molecules above the height of Everest: 34.4% (the rule: 35.0%)
+
+=== step6_anneal.py
+60 towns scattered at random. Visiting them in the order they were listed: 27.47.
+   never accept a longer trip: 6.854 after 200,000 tries
+   accept a longer trip with chance e^(-rise / T), T cooled from 0.3 to 0.001: 6.230 (9.1% shorter), 6,834 longer trips accepted on the way
+   20 other maps: cooling won on 18; average trip 6.598 against 6.171; average gain 6.3%, best 12.6%, worst -1.3%
+
+=== step7_softmax.py
+Next word after "The cat sat on the", with example scores mat 5.0, sofa 4.0, floor 3.5, roof 2.0, moon 0.0
+   T = 0.2: mat 99.3%, sofa 0.7%, floor 0.1%, roof 0.0%, moon 0.0%   one point of score less multiplies the chance by 0.007
+            1,000 draws: mat 992, sofa 8, floor 0, roof 0, moon 0
+   T = 0.5: mat 84.2%, sofa 11.4%, floor 4.2%, roof 0.2%, moon 0.0%   one point of score less multiplies the chance by 0.135
+            1,000 draws: mat 851, sofa 101, floor 45, roof 3, moon 0
+   T = 1.0: mat 60.7%, sofa 22.3%, floor 13.5%, roof 3.0%, moon 0.4%   one point of score less multiplies the chance by 0.368
+            1,000 draws: mat 603, sofa 235, floor 130, roof 26, moon 6
+   T = 2.0: mat 41.9%, sofa 25.4%, floor 19.8%, roof 9.4%, moon 3.4%   one point of score less multiplies the chance by 0.607
+            1,000 draws: mat 433, sofa 243, floor 195, roof 90, moon 39
+   T = 5.0: mat 28.8%, sofa 23.6%, floor 21.3%, roof 15.8%, moon 10.6%   one point of score less multiplies the chance by 0.819
+            1,000 draws: mat 273, sofa 249, floor 212, roof 153, moon 113
+   softmax of the scores and Boltzmann sharing with energy = minus the score: the same numbers to 12 places
+
+all checks passed
